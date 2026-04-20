@@ -1,0 +1,17 @@
+ 
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (nunca sobe para o Git!)
+.env
+
+# Build
+dist/
+build/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/settings.json
