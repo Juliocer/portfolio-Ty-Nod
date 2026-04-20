@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import { projectsRouter } from './routes/projects.routes'
 
 dotenv.config()
 
@@ -17,6 +18,8 @@ app.get('/health', (_req, res) => {
         timestamp: new Date().toISOString(),
     })
 })
+
+app.use('/api/projects', projectsRouter)
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`)
