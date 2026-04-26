@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { projectsRouter } from './routes/projects.routes'
+import { contactRouter } from './routes/contact.routes'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.get('/health', (_req, res) => {
 })
 
 app.use('/api/projects', projectsRouter)
+app.use('/api/contact', contactRouter)
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`)
