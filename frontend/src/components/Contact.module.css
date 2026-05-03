@@ -165,3 +165,69 @@
     grid-template-columns: 1fr;
   }
 }
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.contactLink:hover {
+  border-color: var(--color-text);
+  transform: translateX(3px);
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.contactValue {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  font-weight: 400;
+}
+
+.contactArrow {
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.contactLink:hover .contactArrow {
+  color: var(--color-text);
+  transform: translateX(3px);
+}
