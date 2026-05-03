@@ -3,11 +3,8 @@
   border-top: 1px solid var(--color-border);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 5rem;
-  align-items: start;
+.header {
+  margin-bottom: 4rem;
 }
 
 .label {
@@ -17,7 +14,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-faint);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .heading {
@@ -26,8 +23,7 @@
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  position: sticky;
-  top: 6rem;
+  margin-bottom: 1.25rem;
 }
 
 .heading em {
@@ -39,45 +35,319 @@
   font-size: 1.05rem;
   color: var(--color-text-muted);
   line-height: 1.8;
-  margin-bottom: 1.25rem;
+  max-width: 560px;
 }
 
-.facts {
+.certSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.certLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.certGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--color-border);
+  gap: 1rem;
 }
 
-.fact {
+.certCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.certCard:hover {
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.certBadge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.certTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.certInstitution {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.certHint {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: auto;
+}
+
+/* Modal */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 520px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalClose {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s;
+}
+
+.modalClose:hover {
+  color: var(--color-text);
+}
+
+.modalBadge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.modalInstitution {
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+}
+
+.modalDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 1.5rem 0;
+}
+
+.modalGradeLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: 1rem;
+}
+
+.moduleList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.moduleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.moduleDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 900px) {
+  .certGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 1.75rem;
+  }
+}
+
+.certFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+}
+
+.certCount {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  margin: 1.5rem 0 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tab {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  padding: 0.6rem 1.25rem 0.75rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tabActive {
+  color: var(--color-text);
+  font-weight: 500;
+  border-bottom-color: var(--color-text);
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projectCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.projectCard:hover {
+  border-color: var(--color-text);
+  transform: translateX(3px);
+}
+
+.projectInfo {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.factNumber {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1;
+.projectName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
 }
 
-.factLabel {
+.projectDesc {
   font-size: 0.8rem;
-  color: var(--color-text-faint);
+  color: var(--color-text-muted);
   line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+.projectLink {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
 
-  .heading {
-    position: static;
-  }
+.projectCard:hover .projectLink {
+  color: var(--color-text);
+}
+
+.certImageWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.certImage {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
