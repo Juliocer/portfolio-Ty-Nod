@@ -43,7 +43,7 @@ app.get('/health', (_req, res) => {
 app.use('/api/projects', projectsRouter)
 app.use('/api/contact', contactRouter)
 
-app.listen(PORT, () => {
+app.listen(Number(PORT), '0.0.0.0', () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`)
   console.log(`FRONTEND_URL: ${process.env.FRONTEND_URL || '(não definido)'}`)
 })
