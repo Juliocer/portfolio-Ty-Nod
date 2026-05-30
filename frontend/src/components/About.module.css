@@ -105,17 +105,16 @@
   gap: 0.4rem;
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--color-text);
-  background: var(--color-border);
+  color: var(--color-bg);
+  background: var(--color-text);
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-full);
   margin-top: auto;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
 }
 
 .certCard:hover .certBtn {
-  background: var(--color-text);
-  color: var(--color-bg);
+  opacity: 0.8;
 }
 
 /* Modal */
