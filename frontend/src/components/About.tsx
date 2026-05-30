@@ -285,7 +285,7 @@ export default function About() {
           <span className={styles.label}>Sobre mim</span>
           <h2 className={styles.heading}>
             Desenvolvedor fullstack<br />
-            <em>apaixonado por código.</em>
+            <em>em busca de oportunidades.</em>
           </h2>
           <p className={styles.bio}>
             Recém-formado no curso Técnico em Desenvolvimento, estou em busca do meu primeiro estágio ou oportunidade de trabalho. Tenho experiência prática com front-end e backend, construindo projetos completos com React, Node.js e TypeScript.
