@@ -99,10 +99,23 @@
   color: var(--color-text-faint);
 }
 
-.certHint {
+.certBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.78rem;
-  color: var(--color-text-muted);
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
   margin-top: auto;
+  transition: background 0.2s;
+}
+
+.certCard:hover .certBtn {
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 /* Modal */
