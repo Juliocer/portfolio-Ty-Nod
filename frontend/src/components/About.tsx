@@ -316,7 +316,7 @@ export default function About() {
                   <span className={styles.certCount}>
                     {cert.projects.length} projeto{cert.projects.length !== 1 ? 's' : ''}
                   </span>
-                  <span className={styles.certHint}>Ver detalhes →</span>
+                  <span className={styles.certHint}>Grade · Projetos · Certificado →</span>
                 </div>
               </button>
             ))}
