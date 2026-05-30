@@ -288,9 +288,7 @@ export default function About() {
             <em>apaixonado por código.</em>
           </h2>
           <p className={styles.bio}>
-            Construo aplicações do backend ao frontend com Node.js,
-            TypeScript e React. Foco em código limpo, boas práticas e
-            soluções que funcionam de verdade.
+            Recém-formado no curso Técnico em Desenvolvimento, estou em busca do meu primeiro estágio ou oportunidade de trabalho. Tenho experiência prática com front-end e backend, construindo projetos completos com React, Node.js e TypeScript.
           </p>
         </div>
 
