@@ -272,6 +272,9 @@ const categoryTextColors: Record<string, string> = {
 export default function About() {
   const [selected, setSelected] = useState<Certificate | null>(null)
   const [tab, setTab] = useState<'grade' | 'projetos' | 'certificado'>('grade')
+  const [visibleCerts, setVisibleCerts] = useState(
+    window.innerWidth <= 768 ? 3 : certificates.length
+  )
 
   const handleOpen = (cert: Certificate) => {
     setSelected(cert)
@@ -295,7 +298,7 @@ export default function About() {
         <div className={styles.certSection}>
           <span className={styles.certLabel}>Certificações</span>
           <div className={styles.certGrid}>
-            {certificates.map(cert => (
+            {certificates.slice(0, visibleCerts).map(cert => (
               <button
                 key={cert.id}
                 className={styles.certCard}
@@ -321,6 +324,15 @@ export default function About() {
               </button>
             ))}
           </div>
+
+          {visibleCerts < certificates.length && (
+            <button
+              className={styles.certShowMore}
+              onClick={() => setVisibleCerts(certificates.length)}
+            >
+              Ver todas as certificações ({certificates.length - visibleCerts} restantes)
+            </button>
+          )}
         </div>
       </div>
 

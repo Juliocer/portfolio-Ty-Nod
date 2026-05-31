@@ -389,3 +389,23 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
 }
+
+.certShowMore {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  background: none;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.certShowMore:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
