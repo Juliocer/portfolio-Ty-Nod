@@ -3,9 +3,6 @@ import { api } from '../services/api'
 import type { Project } from '../types/project'
 import styles from './Projects.module.css'
 
-const INITIAL_COUNT = 6
-const LOAD_MORE_COUNT = 6
-
 function ExternalIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -25,6 +22,8 @@ function GithubIcon() {
 }
 
 export default function Projects() {
+  const INITIAL_COUNT = window.innerWidth <= 768 ? 3 : 6
+  const LOAD_MORE_COUNT = 6
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
