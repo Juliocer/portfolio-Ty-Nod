@@ -254,6 +254,32 @@
   }
 }
 
+@media (max-width: 380px) {
+  .modal {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+
+  .tab {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.6rem 0.55rem;
+  }
+
+  .certImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .overlay {
+    padding: 0.5rem;
+  }
+}
+
 .certFooter {
   display: flex;
   align-items: center;
