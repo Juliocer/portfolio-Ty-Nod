@@ -325,14 +325,22 @@ export default function About() {
             ))}
           </div>
 
-          {visibleCerts < certificates.length && (
+          {visibleCerts < certificates.length ? (
             <button
               className={styles.certShowMore}
               onClick={() => setVisibleCerts(certificates.length)}
             >
               Ver todas as certificações ({certificates.length - visibleCerts} restantes)
             </button>
+          ) : visibleCerts > 3 && (
+            <button
+              className={styles.certShowMore}
+              onClick={() => setVisibleCerts(3)}
+            >
+              Ver menos ↑
+            </button>
           )}
+
         </div>
       </div>
 
