@@ -26,6 +26,8 @@
   font-size: 1.5rem;
   color: var(--color-text);
   letter-spacing: -0.02em;
+  position: relative;
+  z-index: 102;
 }
 
 .nav {
@@ -67,6 +69,8 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+  position: relative;
+  z-index: 102;
 }
 
 .bar {
@@ -76,33 +80,77 @@
   background: var(--color-text);
 }
 
+.closeBtn {
+  display: none;
+}
+
+.backdrop {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .menuBtn {
     display: flex;
   }
 
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+  }
+
   .nav {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    width: 75%;
+    max-width: 300px;
     background: var(--color-bg);
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     gap: 2rem;
+    padding: 2rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transform: translateX(100%);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
   }
 
   .nav.open {
     opacity: 1;
     pointer-events: all;
+    transform: translateX(0);
+  }
+
+  .closeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .closeBtn:hover {
+    color: var(--color-text);
   }
 
   .navLink {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--color-text);
   }
 
