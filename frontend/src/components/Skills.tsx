@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './Skills.module.css'
 
 const categories = [
@@ -19,7 +20,15 @@ const categories = [
     },
 ]
 
+const INITIAL_VISIBLE = 3
+
 export default function Skills() {
+    const [expanded, setExpanded] = useState<Record<string, boolean>>({})
+
+    const toggle = (title: string) => {
+        setExpanded(prev => ({ ...prev, [title]: !prev[title] }))
+    }
+
     return (
         <section id="skills" className={styles.section}>
             <div className="container">
@@ -29,19 +38,37 @@ export default function Skills() {
                 </h2>
 
                 <div className={styles.grid}>
-                    {categories.map(cat => (
-                        <div key={cat.title} className={styles.card}>
-                            <h3 className={styles.cardTitle}>{cat.title}</h3>
-                            <ul className={styles.list}>
-                                {cat.items.map(item => (
-                                    <li key={item} className={styles.item}>
-                                        <span className={styles.dot} />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                    {categories.map(cat => {
+                        const isExpanded = expanded[cat.title]
+                        const visibleItems = isExpanded
+                            ? cat.items
+                            : cat.items.slice(0, INITIAL_VISIBLE)
+                        const hasMore = cat.items.length > INITIAL_VISIBLE
+
+                        return (
+                            <div key={cat.title} className={styles.card}>
+                                <h3 className={styles.cardTitle}>{cat.title}</h3>
+                                <ul className={styles.list}>
+                                    {visibleItems.map(item => (
+                                        <li key={item} className={styles.item}>
+                                            <span className={styles.dot} />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                {hasMore && (
+                                    <button
+                                        className={styles.toggleBtn}
+                                        onClick={() => toggle(cat.title)}
+                                    >
+                                        {isExpanded
+                                            ? 'Ver menos ↑'
+                                            : `Ver mais (${cat.items.length - INITIAL_VISIBLE}) ↓`}
+                                    </button>
+                                )}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </section>
